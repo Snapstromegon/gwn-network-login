@@ -24,7 +24,7 @@ const login = async (browser) => {
   await page.close();
 };
 
-const browser = await chromium.launch({ headless: !!JSON.parse(process.env.HEADLESS) });
+const browser = await chromium.launch({ headless: !!JSON.parse(process.env.HEADLESS), executablePath: process.env.CHROMIUM_EXECUTABLE || undefined });
 
 let online = await isOnline(browser);
 if (!online) {
